@@ -5,15 +5,72 @@ format: html
 editor: visual
 ---
 
-# Preparation 
+# Preparation
 
 ```{r}
 here::i_am("bt_empire.Rproj")
 library(ggplot2)
 library(dplyr)
 library(tidyr)
+library(vroom)
+library(here)
 ```
+
+# Link to the github repository 
+
+<https://github.com/inesdamiche/bt_empire.git>
+
+# Question 1
+
+# Question 2
+
+# Question 3 
+
 ```{r}
-systems <- ("data/The_systems.csv")
+systems <- vroom(here("data/The_systems.csv"), locale(decimal_mark = ","))
+#read.csv("data/The_systems.csv", header = TRUE, sep = ";", dec = ",",stringsAsFactors = FALSE)
+
+is.numeric(systems$Star_idx)
+is.numeric(systems$`DISTANCE (LIGHTYEARS)`)
+is.numeric(systems$`effective temperature`)
+is.numeric(systems$`RELATIVE MASS`)
+is.numeric(systems$`Star Radius`)
+is.numeric(systems$`Relative Luminosity`)
 ```
+
+# Question 4 
+
+```{r}
+systems |> 
+  summarise("nb of observations" = nrow(systems), "nb of variables" = ncol(systems))|>
+  mutate("nb of obs with at least one NA" = sum(rowSums(is.na(systems)) > 0))|>
+  knitr::kable()
+
+knitr::kable(colSums(is.na(systems)))
+
+```
+
+# Question 5 
+
+```{r}
+systems |>
+  ggplot(aes(x = `RELATIVE MASS`, y = `effective temperature`)) + geom_point(alpha = 0.1)
+```
+
+# Question 6 
+```{r}
+
+```
+
+
+
+
+
+
+
+
+
+
+
+
 
