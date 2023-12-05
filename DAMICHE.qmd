@@ -29,8 +29,7 @@ done
 # Question 3
 
 ```{r}
-systems <- vroom(here("data/The_systems.csv"), locale(decimal_mark = ","))
-#read.csv("data/The_systems.csv", header = TRUE, sep = ";", dec = ",",stringsAsFactors = FALSE)
+systems <- vroom(here("data/The_systems.csv")) # locale(decimal_mark = ",") 
 
 is.numeric(systems$Star_idx)
 is.numeric(systems$`DISTANCE (LIGHTYEARS)`)
