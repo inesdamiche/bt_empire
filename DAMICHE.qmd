@@ -1,0 +1,19 @@
+---
+title: "Last lab"
+author: "Damiche Inès"
+format: html
+editor: visual
+---
+
+# Preparation 
+
+```{r}
+here::i_am("bt_empire.Rproj")
+library(ggplot2)
+library(dplyr)
+library(tidyr)
+```
+```{r}
+systems <- ("data/The_systems.csv")
+```
+
