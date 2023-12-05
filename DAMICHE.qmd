@@ -161,6 +161,31 @@ knitr::kable(df1)
 
 # Question 10 
 
+```{r}
+#Counting the number of distinct rows for the Star idx variable in the Btfactionsystem file
+x <- 
+  cntrl_factions |> 
+  summarise(n_distinct_rows = n_distinct(Star_idx))
+# Same but for the systems file
+y <- 
+  systems |> 
+  summarise(n_distinct_rows = n_distinct(Star_idx))
+
+z <- abs(x-y) #number of star systems that cannot be found in cntrl_factions file 
+```
+
+# Question 11
+
+
+
+# Question 
+## Joining the data 
+```{r}
+join_factions <- inner_join(factions, cntrl_factions)
+join_factions <- inner_join(join_factions, systems)
+```
+
+ 
 
 
 
